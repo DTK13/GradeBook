@@ -1,0 +1,17 @@
+<p>editstudent works!</p>
+
+<div class="container">
+  <ol *ngIf="student">
+    <li>{{student.Unique_Id}}</li>
+    <li>{{student.FirstName}}</li>
+    <li>{{student.MiddleName}}</li>
+    <li>{{student.LastName}}</li>
+    <li>{{student.DOB | date:"MM-dd-yyyy"}}</li>
+    <li>{{student.Age}}</li>
+    <li>{{student.GradeLevel}}</li>
+    <li>{{student.Street_Address}}</li>
+    <li>{{student.Address_2}}</li>
+    <li>{{student.City}}</li>
+    <li>{{student.State}}</li>
+  </ol>
+</div>

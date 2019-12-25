@@ -1,0 +1,15 @@
+
+nav,a {
+  font-size:px;
+  font-family:cursive;
+}
+nav {
+  border:1px solid white;
+  border-radius:3px;
+  padding:10px;
+}
+
+button {
+font-size:14px;
+
+}

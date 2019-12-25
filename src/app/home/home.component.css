@@ -1,0 +1,17 @@
+.body-padder{
+  padding:80px;
+  text-align: center;
+}
+
+h1 {
+  color:black;
+}
+
+p {
+  color:darkslategray;
+}
+.card-border {
+  padding:5px;
+  border:1px solid black;
+
+}

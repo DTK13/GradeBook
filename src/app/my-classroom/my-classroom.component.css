@@ -1,0 +1,58 @@
+
+h1 {
+  text-align: center;
+  padding-top:70px;
+  padding-bottom:15px;
+}
+
+td,tr
+{
+    text-align: center;
+}
+
+.buttonGroup {
+  text-align: center;
+  font-family:cursive;
+  padding-bottom:40px;
+
+}
+
+.classroom{
+  padding-left:5%;
+  padding-right:5%;
+  font-family: cursive;
+  font-size:22px;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border:1px solid black;
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+    text-align: center;
+    padding-top:70px;
+    padding-bottom:15px;
+  }
+
+  td,tr
+  {
+      text-align: center;
+  }
+
+  .buttonGroup {
+    text-align: center;
+    font-family:cursive;
+    padding-bottom:40px;
+  }
+
+  .classroom{
+    padding-left:15%;
+    padding-right:15%;
+    font-family: cursive;
+  }
+
+}

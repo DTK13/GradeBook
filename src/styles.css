@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'keyvirtue';
+  src: URL('/src/assets/KeyVirtue.ttf') format('truetype');
+}
+footer {
+font-size:22px;
+font-family:cursive;
+text-align: center;
+color:black;
+}
+
+hr {
+  border:1px solid black;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,65 @@
+<body>
+  <div class="container">
+    <h1>Add Student</h1>
+    <hr>
+    <form #f="ngForm">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input autofocus name="FirstName" ngModel="FirstName"  required class="form-control" id="firstname" placeholder="Required">
+          </div>
+          <div class="form-group">
+            <label for="middlename">Middle Name:</label>
+            <input name="MiddleName"  ngModel="MiddleName"  class="form-control" id="middlename" placeholder="(optional)">
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input name="LastName"  ngModel="LastName"  class="form-control" id="lastname" placeholder="Required">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="streetaddress">Street Address:</label>
+            <input name="Street_Address"  ngModel="Street_Address"  class="form-control" id="streetaddress" placeholder="Required">
+          </div>
+          <div class="form-group">
+            <label for="streetaddress2">Address_2:</label>
+            <input name="Address_2"  ngModel="Address_2"  class="form-control" id="streetaddress2" placeholder="(optional)">
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input name="City"  ngModel="City"  class="form-control" id="city" placeholder="Required">
+          </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input name="State"  ngModel="State" class="form-control" id="state" placeholder="Required">
+              </div>
+          <div class="form-group">
+            <label for="DOB">Date of Birth:</label>
+            <input name="DOB"  ngModel="DOB"  class="form-control" id="DOB" placeholder="MM-dd-YYYY">
+          </div>
+          <div class="form-group">
+            <label for="gradelevel">Grade Level:</label>
+            <input name="GradeLevel"  ngModel="GradeLevel"  type="number" class="form-control" id="gradelevel" placeholder="">
+          </div>
+          <div class="form-group">
+              <label for="age">Age:</label>
+              <input name="Age"  ngModel="Age"  type="number" class="form-control" id="age" placeholder="">
+            </div>
+          <div style="text-align: right;">
+              <button (click)="AddStudent(f.value)" class="btn-lg btn-success">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <div style="text-align: center; padding-left:25%; padding-right:25%;" *ngIf="response$=='Student Successfully Added'">
+        <div class="alert alert-success">
+          {{response$}}
+        </div>
+      </div>
+  </div>
+</body>
