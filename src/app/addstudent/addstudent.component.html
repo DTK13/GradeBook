@@ -2,64 +2,105 @@
   <div class="container">
     <h1>Add Student</h1>
     <hr>
-    <form #f="ngForm">
+    <form id='content' (change)="checkForm(studentForm)" #studentForm="ngForm">
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="firstname">First Name:</label>
-            <input autofocus name="FirstName" ngModel="FirstName"  required class="form-control" id="firstname" placeholder="Required">
+            <input #firstName="ngModel" ngModel="firstName" required autofocus name="firstName" class="form-control">
+          <div *ngIf="firstName.touched && firstName.value==''">
+            <div class="alert alert-danger">
+              First name is required!
+            </div>
+          </div>
+
           </div>
           <div class="form-group">
             <label for="middlename">Middle Name:</label>
-            <input name="MiddleName"  ngModel="MiddleName"  class="form-control" id="middlename" placeholder="(optional)">
+            <input  ngModel="middleName" name="MiddleName" class="form-control" placeholder="(optional)">
           </div>
           <div class="form-group">
             <label for="lastname">Last Name:</label>
-            <input name="LastName"  ngModel="LastName"  class="form-control" id="lastname" placeholder="Required">
+            <input #lastName="ngModel" ngModel="lastName" required name="LastName" class="form-control" value="">
+            <div *ngIf="lastName.touched && lastName.value==''">
+              <div class="alert alert-danger">
+                Last name is required!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="streetaddress">Street Address:</label>
-            <input name="Street_Address"  ngModel="Street_Address"  class="form-control" id="streetaddress" placeholder="Required">
+            <input #streetAddress="ngModel" ngModel="street_address" name="Street_Address" required class="form-control"
+              placeholder="Required">
+              <div *ngIf="streetAddress.touched && streetAddress.value==''">
+                <div class="alert alert-danger">
+                  Street address is required!
+                </div>
+              </div>
           </div>
           <div class="form-group">
             <label for="streetaddress2">Address_2:</label>
-            <input name="Address_2"  ngModel="Address_2"  class="form-control" id="streetaddress2" placeholder="(optional)">
+            <input #streetAddress2="ngModel" ngModel="address_2" name="Address_2" class="form-control" placeholder="(optional)">
           </div>
           <div class="form-group">
             <label for="city">City:</label>
-            <input name="City"  ngModel="City"  class="form-control" id="city" placeholder="Required">
+            <input #city="ngModel" ngModel="city" name="City" required class="form-control" placeholder="Required">
+            <div *ngIf="city.touched && city.value==''">
+              <div class="alert alert-danger">
+                City name is required!
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
-            <div class="form-group">
-                <label for="state">State:</label>
-                <input name="State"  ngModel="State" class="form-control" id="state" placeholder="Required">
+          <div class="form-group">
+            <label for="state">State:</label>
+            <input #state="ngModel" ngModel="state" name="State" required class="form-control" maxlength="2" placeholder="Required">
+            <div *ngIf="state.touched && state.value==''" >
+              <div class="alert alert-danger">
+                State is required!
               </div>
+            </div>
+          </div>
           <div class="form-group">
             <label for="DOB">Date of Birth:</label>
-            <input name="DOB"  ngModel="DOB"  class="form-control" id="DOB" placeholder="MM-dd-YYYY">
+            <input #dob="ngModel" ngModel="dob" name="DOB" class="form-control" placeholder="MM-dd-YYYY">
           </div>
           <div class="form-group">
             <label for="gradelevel">Grade Level:</label>
-            <input name="GradeLevel"  ngModel="GradeLevel"  type="number" class="form-control" id="gradelevel" placeholder="">
+            <input #gradelevel="ngModel"ngModel="gradelevel" name="GradeLevel" required type="number" class="form-control"placeholder="Required">
+                <div *ngIf="gradelevel.value==null" class="alert alert-danger">
+                  Grade level is required!
+                </div>
+                <div *ngIf="gradelevel.touched && gradelevel.value < 0 || gradelevel.value >=30" class="alert alert-info">
+                   Please enter a valid grade level (greater than 0 and less than 30).
+                </div>
           </div>
           <div class="form-group">
-              <label for="age">Age:</label>
-              <input name="Age"  ngModel="Age"  type="number" class="form-control" id="age" placeholder="">
+            <label for="age">Age:</label>
+            <input #age="ngModel" ngModel="Age" name="Age" type="number" required class="form-control" placeholder="Required">
+            <div *ngIf="age.value==null" class="alert alert-danger">
+                Age is required!
             </div>
+            <div class="alert alert-info" *ngIf="age.touched && age.value>=60 || age.value < 5">
+              Please enter a valid age between 5-60 years old!
+            </div>
+          </div>
           <div style="text-align: right;">
-              <button (click)="AddStudent(f.value)" class="btn-lg btn-success">Submit</button>
+          <button (click)="clearForm(studentForm)" class="btn btn-danger btn-lg">Clear Form</button>&nbsp;
+          <button [disabled]="studentForm.control.status=='INVALID'" (click)="AddStudent(studentForm.value)" [class]="buttonClass">Submit</button>
           </div>
         </div>
       </div>
     </form>
     <br>
-    <div style="text-align: center; padding-left:25%; padding-right:25%;" *ngIf="response$=='Student Successfully Added'">
-        <div class="alert alert-success">
-          {{response$}}
-        </div>
+    <div style="text-align: center; padding-left:25%; padding-right:25%;"
+      *ngIf="response=='Student Successfully Added'">
+      <div class="alert alert-success">
+        {{response}}
       </div>
+    </div>
   </div>
 </body>

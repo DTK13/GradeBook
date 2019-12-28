@@ -10,7 +10,7 @@ import { BsNavComponent } from './bs-nav/bs-nav.component';
 import { GradesComponent } from './grades/grades.component';
 import { MyClassroomComponent } from './my-classroom/my-classroom.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';

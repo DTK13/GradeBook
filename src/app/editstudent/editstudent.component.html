@@ -1,17 +1,14 @@
-<p>editstudent works!</p>
-
 <div class="container">
-  <ol *ngIf="student">
-    <li>{{student.Unique_Id}}</li>
-    <li>{{student.FirstName}}</li>
-    <li>{{student.MiddleName}}</li>
-    <li>{{student.LastName}}</li>
-    <li>{{student.DOB | date:"MM-dd-yyyy"}}</li>
-    <li>{{student.Age}}</li>
-    <li>{{student.GradeLevel}}</li>
-    <li>{{student.Street_Address}}</li>
-    <li>{{student.Address_2}}</li>
-    <li>{{student.City}}</li>
-    <li>{{student.State}}</li>
-  </ol>
+  <ul *ngIf="student">
+    <li>First Name: {{student.FirstName}}</li>
+    <li>Middle Name/ Initial: {{student.MiddleName}}</li>
+    <li>Last Name: {{student.LastName}}</li>
+    <li>Birthday: {{student.DOB | date:"MM-dd-yyyy"}}</li>
+    <li>Age: {{student.Age}}</li>
+    <li>Grade Level: {{student.GradeLevel}}</li>
+    <li>Street Address: {{student.Street_Address}}</li>
+    <li>Secondary Address: {{student.Address_2}}</li>
+    <li>City: {{student.City}}</li>
+    <li>State: {{student.State}}</li>
+  </ul>
 </div>

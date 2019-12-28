@@ -1,39 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentServiceService } from '../services/student-service.service';
-import { Router } from '@angular/router';
-import { JsonpInterceptor } from '@angular/common/http';
-
-
+import { Student } from '../models/student.model';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-addstudent',
   templateUrl: './addstudent.component.html',
   styleUrls: ['./addstudent.component.css']
 })
-export class AddstudentComponent {
+export class AddstudentComponent implements OnInit {
 
-  students;
-  isSuccessful: boolean;
-  alertClass: string;
+  students: Student;
+  response: any;
+  buttonClass: string = 'btn btn-success disabled btn-lg';
   constructor(public studentService: StudentServiceService) { }
 
-  response$;
-  AddStudent(student) {
+  ngOnInit = () => {
+  }
+
+  clearForm = (form: NgForm) => {
+    form.resetForm();
+  }
+
+  checkForm = (studentForm: NgForm) => {
+    if (studentForm.status === 'VALID') {
+      this.buttonClass = 'btn btn-success btn-lg';
+    }
+  }
+
+  AddStudent = (student) => {
+
     return this.studentService.postStudent(student).subscribe(res => {
-      this.response$ = res;
-      if (this.response$ === 'Student Successfully Added') {
-        this.isSuccessful = true;
-        this.alertClass = 'alert alert-success';
-        if (confirm('Would you like to add annother student?')) {
-          window.location.reload();
+      this.response = res;
+    },
+      error => {
+        console.log(error);
+      });
+  }
 
-        }
-        else {
-
-        }
-      }
-      else {
-        this.alertClass = 'alert alert-danger';
-      }
-    });
+  log = (model) => {
+    console.log(model);
   }
 }
